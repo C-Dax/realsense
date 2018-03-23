@@ -67,7 +67,7 @@ generate_dynamic_reconfigure_options(
 # RealSense ROS Node
 catkin_package(
     LIBRARIES ${PROJECT_NAME}
-    CATKIN_DEPENDS message_runtime roscpp sensor_msgs std_msgs librealsense2
+    CATKIN_DEPENDS message_runtime roscpp sensor_msgs std_msgs
     nodelet
     cv_bridge
     image_transport
@@ -94,8 +94,7 @@ add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_gencfg)
 
 
 target_link_libraries(${PROJECT_NAME}
-    realsense2
-    ${catkin_LIBRARIES}
+    ${catkin_LIBRARIES} -lrealsense2
     ${CMAKE_THREAD_LIBS_INIT}
     )
 
